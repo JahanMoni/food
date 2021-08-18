@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ProductController;
+
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\Itemcontroller;
+use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\Offercontroller;
+use App\Http\Controllers\Backend\Ordercontroller;
+use App\Http\Controllers\Backend\Employeecontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,19 +22,10 @@ use Illuminate\Support\Facades\Route;
 //localhost/projectname/public/category
 Route::get('/',[HomeController::class,'home']);
 Route::get('/contact',[HomeController::class,'contact']);
-
-Route::get('/categories',[CategoryController::class,'list'])->name('category.list');
-Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
-Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
-
-
-Route::get('/products',[ProductController::class,'list'])->name('product.list');
-Route::post('/products/store',[ProductController::class,'store'])->name('product.store');
-// uri, controller,method
-
-//model
-//view
-//route
-//controller
-    //method
+Route::get('/category',[CategoryController::class,'category'])->name('categories.category');
+Route::get('/item',[ItemController::class,'item'])->name('items.item');
+Route::get('/customer',[CustomerController::class,'customer'])->name('customers.customer');
+Route::get('/offer',[OfferController::class,'offer'])->name('offers.offer');
+Route::get('order',[orderController::class,'order'])->name('orders.order');
+Route::get('employee',[Employeecontroller::class,'employee'])->name('employees.employee');
 
